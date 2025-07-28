@@ -1,103 +1,234 @@
+import React from "react";
 import Image from "next/image";
+import DataImage from "@/public/data";
+import HeroInfo from "./components/HeroInfo";
+import Link from "next/link";
+import * as motion from "motion/react-client";
 
-export default function Home() {
+const page = () => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      {/* Title */}
+      <motion.div
+        className="py-20"
+        initial={{ opacity: 0, y: 20, scale: 0.7 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 0.5,
+        }}
+      >
+        <h1 className="text-5xl/tight sm:text-center text-left">
+          Solusi <span className="font-bold text-[#2e82ff]">Terbaik</span> untuk
+          Kebutuhan <br />
+          Digital <span className="font-bold text-[#2e82ff]">Anda</span>.
+        </h1>
+      </motion.div>
+      {/* Title */}
+      {/* Hero Image */}
+      <div className="max-w-5xl mx-auto relative overflow-hidden rounded-lg">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <Image
+            src={DataImage.Hero}
+            alt="Hero Image"
+            className="w-full h-auto object-cover rounded-lg"
+            priority
+          />
+          <HeroInfo />
+        </motion.div>
+      </div>
+      {/* Hero Image */}
+      {/* Layanan */}
+      <div
+        className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-24 gap-10"
+        id="layanan"
+      >
+        <motion.div
+          className="shadow-md rounded-2xl p-4"
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <i className="ri-money-dollar-circle-fill ri-3x text-[#2e82ff]"></i>
+          <p className="font-semibold text-2xl/normal mb-2">
+            Harga Paling Kompetitif
+          </p>
+          <p className="text-base/loose">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Perspiciatis optio quo quisquam, nesciunt eum minus.
+          </p>
+        </motion.div>
+        <motion.div
+          className="shadow-md rounded-2xl p-4"
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <i className="ri-service-fill ri-3x text-[#2e82ff]"></i>
+          <p className="font-semibold text-2xl/normal mb-2">
+            Evaluasi Secara Berkala
+          </p>
+          <p className="text-base/loose">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Perspiciatis optio quo quisquam, nesciunt eum minus.
+          </p>
+        </motion.div>
+        <motion.div
+          className="shadow-xl rounded-xl p-4"
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <i className="ri-star-s-fill ri-3x text-[#2e82ff]"></i>
+          <p className="font-semibold text-2xl/normal mb-2">
+            Spesialis Dalam Website, Mobile & IoT
+          </p>
+          <p className="text-base/loose">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Perspiciatis optio quo quisquam, nesciunt eum minus.
+          </p>
+        </motion.div>
+      </div>
+      {/* Layanan */}
+      {/* Proyek */}
+      <div className="mt-24 mb-12" id="proyek">
+        <motion.h1
+          className="text-4xl/normal text-center font-semibold"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          Proyek Kami
+        </motion.h1>
+        <motion.p
+          className="text-base/loose text-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        </motion.p>
+        <div className="mt-18 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+          <motion.div
+            className="shadow-xl p-4 rounded-lg"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={DataImage.Proyek1}
+              alt="Proyek Image"
+              className="rounded-lg"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <h1 className="mt-6 mb-3 text-2xl font-semibold">Landing Page</h1>
+            <p className="text-base/loose">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptates, at?
+            </p>
+            <div className="mt-6 mb-3">
+              <Link
+                href={"#"}
+                className="bg-[#2e82ff] text-white text-center p-3 rounded-lg hover:bg-[#256af9] cursor-pointer"
+              >
+                Lihat Website
+              </Link>
+            </div>
+          </motion.div>
+          <motion.div
+            className="shadow-xl p-4 rounded-lg"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
           >
-            Read our docs
-          </a>
+            <Image
+              src={DataImage.Proyek2}
+              alt="Proyek Image"
+              className="rounded-lg"
+            />
+            <h1 className="mt-6 mb-3 text-2xl font-semibold">
+              Bimo Misadventures
+            </h1>
+            <p className="text-base/loose">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptates, at?
+            </p>
+            <div className="mt-6 mb-3">
+              <Link
+                href={"#"}
+                className="bg-[#2e82ff] text-white text-center p-3 rounded-lg hover:bg-[#256af9] cursor-pointer"
+              >
+                Lihat Website
+              </Link>
+            </div>
+          </motion.div>
+          <motion.div
+            className="shadow-xl p-4 rounded-lg"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Image
+              src={DataImage.Proyek3}
+              alt="Proyek Image"
+              className="rounded-lg"
+            />
+            <h1 className="mt-6 mb-3 text-2xl font-semibold">Shadcn UI</h1>
+            <p className="text-base/loose">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Voluptates, at?
+            </p>
+            <div className="mt-6 mb-3">
+              <Link
+                href={"#"}
+                className="bg-[#2e82ff] text-white text-center p-3 rounded-lg hover:bg-[#256af9] cursor-pointer"
+              >
+                Lihat Website
+              </Link>
+            </div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      {/* Proyek */}
+      {/* Kontak */}
+      <div
+        className="mt-24 flex items-center justify-between md:flex-row flex-col md:gap-0 gap-4"
+        id="kontak"
+      >
+        <h2 className="text-3xl font-bold">Spectrx.</h2>
+        <div className="flex gap-10">
+          <Link href={"#beranda"}>Beranda</Link>
+          <Link href={"#layanan"}>Layanan</Link>
+          <Link href={"#proyek"}>Proyek</Link>
+        </div>
+        <div>
+          <Link href={""}>
+            <i className="ri-youtube-fill ri-2x"></i>
+          </Link>
+          <Link href={""}>
+            <i className="ri-reddit-fill ri-2x"></i>
+          </Link>
+          <Link href={""}>
+            <i className="ri-instagram-fill ri-2x"></i>
+          </Link>
+          <Link href={""}>
+            <i className="ri-twitter-fill ri-2x"></i>
+          </Link>
+        </div>
+      </div>
+      {/* Kontak */}
+    </>
   );
-}
+};
+
+export default page;
